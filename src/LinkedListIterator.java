@@ -29,20 +29,15 @@ public class LinkedListIterator<T> implements Iterator<T> {
 
 	@Override
 	public T next() {
-		Node<T> current = linked.getCurrentNode();
-		
-		
-		if(linked.iterator().hasNext()){
-			Node<T> temp = current.getAfterNode();
-			temp = current;
-			return (T) current;
-		}
-		//return current node
-		//set next node to currentNode
+		T current = (T) linked.getCurrentNode().getValue();
 
-		
-		
+		linked.setCurrentNode(linked.getCurrentNode().getAfterNode());
+
 		return (T) current;
+
+		//return current node
+		//set next node to currentNode	
+
 	}
 
 	@Override
